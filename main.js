@@ -2,11 +2,6 @@ var menuButton = document.getElementById("menu");
 var goUp = document.getElementById("go-up");
 var body = document.getElementsByTagName("body")[0];
 
-HTMLElement.prototype.switchClasses = function(cOne, cTwo) {
-	// Toggle from one to two
-
-}
-
 var switchClasses = function(el, cOne, cTwo) {
 	  if(el.classList) {
 	  	if(el.classList.contains(cOne)) {
