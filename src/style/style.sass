@@ -29,7 +29,7 @@ body
 				transition: 0.4s width
 				&.super-hide
 					width: 1%
-					height: 0
+					display: none
 				&.super-show
 					position: fixed
 					right: 0
@@ -48,8 +48,10 @@ body
 							color: $primary
 							background: inherit
 							text-decoration: none
+							transition: background 0.2s
+							border-radius: 3px
 							&:hover
-								text-align: underline
+								background: #111111
 			#nav-overlay
 				filter: blur(5px)
 			#nav-wrapper
