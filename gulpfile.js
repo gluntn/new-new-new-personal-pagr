@@ -4,6 +4,7 @@ const sass   = require('gulp-sass');
 const babel  = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const watch  = require('gulp-watch');
 const pump   = require('pump');
 
 const dest  = './docs';
@@ -38,6 +39,13 @@ gulp.task('compress', (cb) => {
 		concat('main.js'),
 		gulp.dest(dest)
 	], cb);
+});
+
+gulp.task('watch', () => {
+  gulp.task('magic'),
+  gulp.watch(where.pug,  ['pug']),
+  gulp.watch(where.sass, ['sass']),
+  gulp.watch(where.js,  ['compress'])
 });
 
 gulp.task('magic', ['pug', 'sass', 'compress']);

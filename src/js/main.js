@@ -1,6 +1,7 @@
 const menuButton = document.getElementById("mobile");
 const slideMenu  = document.getElementById("mobile-menu")
 const goUp = document.getElementById("go-up-right");
+const feedbackButton = document.getElementById("feedback");
 
 var switchClasses = function(el, cOne, cTwo) {
 	  if(el.classList) {
@@ -23,6 +24,11 @@ menuButton.addEventListener('click', (e) => {
     menuButton.classList.remove("close");
   }
 });
+
+feedbackButton.addEventListener('click', (e) => {
+  alert("Sorry! Not implemented yet!");
+})
+
 
 goUp.addEventListener('click', function() {
 		window.scroll({
