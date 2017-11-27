@@ -6,7 +6,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const pump   = require('pump');
 
-const dest = './build';
+const dest = './docs';
 const where = {
 	pug:  './src/*.pug',
 	sass: './src/style/*.sass',
