@@ -1,6 +1,6 @@
-var menuButton = document.getElementById("menu");
-var goUp = document.getElementById("go-up");
-var body = document.getElementsByTagName("body")[0];
+const menuButton = document.getElementById("menu");
+const goUp = document.getElementById("go-up");
+const body = document.getElementsByTagName("body")[0];
 
 var switchClasses = function(el, cOne, cTwo) {
 	  if(el.classList) {
@@ -13,7 +13,12 @@ var switchClasses = function(el, cOne, cTwo) {
   }
 }
 
-body.addEventListener('click', function(event) {
+menuButton.addEventListener('click', (e) => {
+   switchClasses(menuButton, 'hidden', 'show');
+  // e.stopPropogation();
+});
+
+body.addEventListener('click', (e) => {
   switchClasses(menuButton, 'show', 'hidden');
 });
 
@@ -24,12 +29,12 @@ goUp.addEventListener('click', function() {
 	});
 });
 
-menuButton.addEventListener('mouseenter', function(event) {
+menuButton.addEventListener('mouseenter', (e) => {
    switchClasses(menuButton, 'hidden', 'show');
   // e.stopPropogation();
 });
 
-menuButton.addEventListener('mouseleave', function(event) {
+menuButton.addEventListener('mouseleave', (e) => {
    switchClasses(menuButton, 'show', 'hidden');
   // e.stopPropogation();
 });

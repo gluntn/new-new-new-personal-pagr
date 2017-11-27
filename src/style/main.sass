@@ -1,0 +1,202 @@
+@import 'variables'
+@import 'reset'
+
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,700|Press+Start+2P&subset=latin-ext")
+
+*
+  box-sizing: inherit
+  &:before, &:after
+    box-sizing: inherit
+
+a
+  color: $black
+  -webkit-transition: color 0.2s
+  transition: color 0.2s
+  &:hover
+    color: $primary
+
+html
+  box-sizing: border-box
+  font-family: 'Rubik'
+  color: $black
+  body
+    background: #eee
+    width: 100%
+    height: 100%
+    #container
+      width: 100%
+      height: 100%
+  width: 100%
+  height: 100%
+
+#navigation
+  padding: 1em
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: 5em
+  background: white
+  border-bottom: 0
+  #nav-content
+    #name
+      font-size: 1.7em
+      display: inline-block
+      font-family: "Press Start 2P"
+      letter-spacing: -0.1em
+      margin-top: 0.3em
+      .letter
+        color: $primary
+    #menu
+      margin: 0.5em
+      margin-top: 0.3em
+      float: right
+      li
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55)
+        margin-bottom: 0.2em
+        background: $black
+        margin: auto
+        > a
+          transition: all 0.3s
+        &:first-child
+          border-top-left-radius: 2px
+          border-top-right-radius: 2px
+        &:last-child
+          border-bottom-left-radius: 2px
+          border-bottom-right-radius: 2px
+          margin-bottom: 0
+        &.active
+          color: $primary
+      &.hidden
+        cursor: pointer
+        &:hover > li
+          margin-bottom: 0.3em
+          &:last-child
+            margin-bottom: 0
+        li
+          margin-left: auto
+          height: 0.5em
+          width: 2em
+          background: $black
+          margin-bottom: 0.2em
+          a
+            display: none
+      &.show
+        padding: 1em
+        text-align: right
+        top: 0
+        right: 0
+        position: fixed
+        z-index: 9999
+        li
+          display: block
+          &:hover > a
+            text-decoration: underline
+            color: $primary
+          a
+            display: block
+            width: 12.5em
+            padding: 1em 0.5em
+            text-decoration: none
+            color: white
+
+#content
+  background: white
+  height: inherit
+  margin-top: 5em
+  margin-bottom: 2.5em
+  border-top: 0
+  border-bottom: 0
+  width: 75%
+  margin: 5em auto 2.5em auto
+  .fill-screen
+    overflow: auto
+    height: auto
+    width: 100%
+    padding: 1em
+    .image
+      float: left
+      height: auto
+      margin-right: 1em
+    .title
+      font-size: 2em
+    .innhold
+      margin-top: 0.5em
+      line-height: 1.5
+      max-width: 40em
+      text-align: left
+    &.green
+      background: $primary
+      color: white
+
+#footer
+  position: fixed
+  bottom: 0
+  right: 0
+  left: 0
+  background: white
+  padding: 0.75em
+  padding-right: 0
+  height: 2.5em
+  text-align: left
+  border-top: 0
+  .right
+    float: right
+    #go-up
+      background: $primary
+      padding: .75em
+      border-top-right-radius: 2px
+      border-top-left-radius: 2px
+      transition: 0.3s padding
+      height: 1em
+      transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55)
+      &:hover
+        color: white
+        padding: 1em
+  #social-media
+    display: inline-block
+    li
+      display: inline-block
+      a
+        margin: 0 0.1em
+        color: $black
+        -webkit-transition: color 0.2s
+        transition: color 0.2s
+        &:hover
+          color: $primary
+
+@media screen and (max-width: 535px)
+  #container #content .fill-screen
+    text-align: center
+    .image
+      margin-bottom: 0.75em
+      float: none
+      display: block
+
+@media screen and (max-width: 560px)
+  #navigation
+    padding: 0.5em 0
+    #nav-content
+      #name
+        display: block
+        text-align: center
+        margin-top: 0
+        margin-bottom: 0.25em
+      #menu
+        text-align: center
+        display: block
+        float: none
+        margin-top: 0
+        &.show
+          top: 1.5em
+          left: 0
+          li > a
+            width: 100%
+            text-align: center
+            padding: 1em 0
+            &:hover
+              width: 100%
+  #content
+    width: 100%
+  #footer
+    text-align: center
