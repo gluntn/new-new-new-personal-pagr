@@ -1,45 +1,45 @@
 html
   head
     title William S. Østensen
-    meta(name='theme-color', content='#33b39f')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(charset='UTF-8')
-    link(rel='stylesheet', type='text/css', href='style.css')
+    link(rel="stylesheet", href="reset.css")
+    link(rel="stylesheet", href="style.css")
+    meta(charset="utf-8")
+    meta(name="theme-color", content="#00cfaa")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
   body
-    #container
+    #wrapper
       nav#navigation
-        #nav-content
-          #name
-            | WILLIAM
-            span.letter S
-            | ØSTENSEN
-          ul#menu.hidden
-            li
-              a(href='#') HOME
-            li.active
-              a(href='#') ABOUT
-            li
-              a(href='#') WORKS
+        ul(id="mobile-menu", class="super-hide")
+          each dest, text in {'Home': '#', 'About': '#', 'Contact': '#'}
+            li(class="link")
+              a(href=dest)=text
+        #nav-overlay
+        #nav-wrapper
+            #name 
+              | WILLIAM
+              span.s S
+              |ØSTENSEN
+            #menu
+              ul(id="mobile", class="mobile-show")
+                each val in ["one", "two", "three"]
+                  li(class="menu-bar" class=val)
+              ul(class="desktop")
+                each dest, text in {'Home': '#', 'About': '#', 'Contact': '#'}
+                  li(class="link")
+                    a(href=dest)=text
       #content
-        .fill-screen.green
-          // <div class="image"><img src="https://dummyimage.com/200x200/000/fff" alt="img"/></div>
-          .image
-            img(src='me.bmp')
-          .title Om meg
-          .innhold
-            div
-              | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur accusamus ratione provident culpa incidunt excepturi ad numquam. Itaque, voluptatum esse ratione ipsum quasi ad, fugiat nisi quibusdam nobis error laudantium. 🍑
-      #footer
-        span.right
-          a#go-up(href='#')
+        article.post
+          .title First post
+          .innhold Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            |tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            |quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            |consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            |cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            |proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          .footer Footer
+      footer#footer
+        #go-up-right
+          a(href="#")
             i.fa.fa-chevron-up(aria-hidden='true')
-        | You can find me here:
-        ul#social-media
-          li
-            a.social.element(href='#')
-              i.fa.fa-github-alt(aria-hidden='true')
-          li
-            a.social.element(href='#')
-              i.fa.fa-twitter-square(aria-hidden='true')
-    script(type='text/javascript', src='main.js')
-    script(src='https://use.fontawesome.com/595c58108c.js')
+  script(src='main.js')
+  script(src='https://use.fontawesome.com/595c58108c.js')

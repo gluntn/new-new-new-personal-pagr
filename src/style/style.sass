@@ -1,0 +1,170 @@
+@import 'reset'
+
+@import url("https://fonts.googleapis.com/css?family=Rubik:400,700|Press+Start+2P&subset=latin-ext")
+
+$black:   #222222
+$white:   #eefeef
+$primary: #00cfaa
+
+*
+	box-sizing: inherit
+	&:before, &:after
+		box-sizing: inherit
+
+html
+	box-sizing: border-box
+	font-family: 'Rubik'
+	color: $black
+
+body
+	#wrapper
+		nav
+			position: fixed
+			top: 0
+			left: 0
+			right: 0
+			height: 4em
+			padding: 0.5em 2em
+			padding-bottom: 0
+			background: rgba(255, 255, 255, 0.9)
+			ul#mobile-menu
+				transition: 0.4s width
+				&.super-hide
+					width: 1%
+					height: 0
+				&.super-show
+					position: fixed
+					right: 0
+					top: 0
+					height: 100%
+					width: 70%
+					padding-top: 2em
+					background: $black
+					li
+						text-align: center
+						margin: 0.5em 0 
+						a
+							padding: 1em 0
+							font-size: 1.5em
+							display: block
+							color: $primary
+							background: inherit
+							text-decoration: none
+							&:hover
+								text-align: underline
+			#nav-overlay
+				filter: blur(5px)
+			#nav-wrapper
+				width: 100%
+				#name
+					display: inline-block
+					height: 100%
+					font-size: 2.5em
+					vertical-align: baseline
+					.s
+						color: $primary
+				#menu
+					display: inline-block
+					float: right
+					ul#mobile
+						display: none
+						margin: .5em
+						&.close
+							translateY(10%)
+							& > .one
+								transform: rotate(135deg)
+							& > .two
+								opacity: 0
+							& > .three
+								transform: rotate(-135deg) translate(45%, 250%)
+						&:hover
+							cursor: pointer
+						&:hover > li.one
+							width: 2.3em
+						&:hover > li.two
+							width: 2.2em
+						&:hover > li.three
+							width: 2.3em
+						.menu-bar
+							margin: 0 auto
+							display: block
+							height: 5px
+							background: $primary
+							width: 2em
+							margin-bottom: .3em 
+							&.one
+								transition: width 0.2s, transform 0.2s
+							&.two
+								transition: width 0.3s, opacity 0.2s
+							&.three
+								transition: width 0.35s, transform 0.2s
+							&:first-child
+								border-top-right-radius: 1.5px
+								border-top-left-radius:  1.5px
+							&:last-child
+								border-bottom-right-radius: 1.5px
+								border-bottom-left-radius:  1.5px
+								margin-bottom: 0
+					ul.desktop
+						display: inline-block
+						.link
+							display: inline-block
+							vertical-align: middle
+							a
+								margin: auto
+								display: block
+								font-size: 1.5em
+								padding: .5em 1em
+								color: $primary
+								text-decoration: none
+								border-bottom: 2px solid transparent
+								transition: 0.2s border-bottom
+								&:hover
+									border-bottom: 2px solid $primary
+		#content
+			width: 70%
+			height: 100%
+			margin: 4em auto
+			.post
+				.title
+					font-size: 2em
+				.innhold
+					margin: .5em 0
+					letter-spacing: 0.025em
+					line-height: 1.25em
+		footer
+			position: fixed
+			bottom: 0
+			left: 0
+			right: 0
+			height: 4em
+			background: $primary
+			padding: 0 2em
+			#go-up-right
+				a
+					margin: auto
+					color: $white
+					font-size: 3em
+					float: right
+					transition: transform 0.3s
+					text-decoration: none
+					&:hover
+						transform: translateY(-5%)
+
+@media screen and (max-width: 740px)
+	body
+		#wrapper
+			nav
+				padding: 0.5em
+				#menu
+					z-index: 1000
+					ul.desktop
+						display: none !important
+					ul#mobile
+						display: inline-block !important
+						position: fixed
+						top:  0.5em
+						right: 0.5em
+			#content
+				width: 100%
+				padding: 0.5em

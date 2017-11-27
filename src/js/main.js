@@ -1,6 +1,6 @@
-const menuButton = document.getElementById("menu");
-const goUp = document.getElementById("go-up");
-const body = document.getElementsByTagName("body")[0];
+const menuButton = document.getElementById("mobile");
+const slideMenu  = document.getElementById("mobile-menu")
+const goUp = document.getElementById("go-up-right");
 
 var switchClasses = function(el, cOne, cTwo) {
 	  if(el.classList) {
@@ -14,12 +14,14 @@ var switchClasses = function(el, cOne, cTwo) {
 }
 
 menuButton.addEventListener('click', (e) => {
-   switchClasses(menuButton, 'hidden', 'show');
-  // e.stopPropogation();
-});
-
-body.addEventListener('click', (e) => {
-  switchClasses(menuButton, 'show', 'hidden');
+  if(slideMenu.classList.contains('super-hide')) {
+    switchClasses(slideMenu, 'super-hide', 'super-show');
+    menuButton.classList.add("close");
+  } 
+  else if(slideMenu.classList.contains('super-show')) {
+    switchClasses(slideMenu, 'super-show', 'super-hide');
+    menuButton.classList.remove("close");
+  }
 });
 
 goUp.addEventListener('click', function() {
@@ -28,22 +30,3 @@ goUp.addEventListener('click', function() {
 	  behavior: 'smooth' 
 	});
 });
-
-menuButton.addEventListener('mouseenter', (e) => {
-   switchClasses(menuButton, 'hidden', 'show');
-  // e.stopPropogation();
-});
-
-menuButton.addEventListener('mouseleave', (e) => {
-   switchClasses(menuButton, 'show', 'hidden');
-  // e.stopPropogation();
-});
-/*
-menuButton.onclick = function(event) {
-  console.log(menuButton.classList);
-  if(menuButton.classList.contains("hidden")) {
-    menuButton.classList.remove("hidden");
-    menuButton.classList.add("show");
-  }
-}
-*/
