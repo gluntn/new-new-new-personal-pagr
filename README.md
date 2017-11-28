@@ -6,7 +6,4 @@ You can visit the page [here](https://wostensen.github.io/new-new-new-personal-p
 
 ## Feel free to submit an issue if you have any ideas, or if you find anything that's just blatantly wrong!
 
-## Updated to Sass and Pug! (With Gulp)
-
-Previous size: 1.83kB
-New size:      ....kB
+26. nov. 2017: Updated to Sass and Pug! (With Gulp)
