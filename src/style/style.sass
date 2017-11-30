@@ -2,9 +2,9 @@
 
 $black:         #222222
 $white:         #eefeef
-$primary-light: #04ffd0
-$primary:       #00cfaa
-$primary-dark:  #008e76
+$primary:       #17dcaf;
+$primary-light: lighten($primary, 1.1)
+$primary-dark:  darken( $primary, 1.1)
 
 *
 	box-sizing: inherit
@@ -68,21 +68,41 @@ body
 					vertical-align: baseline
 					.s
 						color: $primary
+					.social
+						margin-left: .25em
+						.social-link
+							position: relative
+							width: .8em
+							display: inline-block
+							margin-right: .25em
+							&:after
+								content: " "
+								position: absolute
+								top: 0
+								left: 0
+								right: 0
+								bottom: 0
+							& > svg
+								transition: fill 0.2s
+								&:hover
+									fill: $primary
 				#menu
 					display: inline-block
 					float: right
 					ul#mobile
 						display: none
 						margin: .5em
+						margin-top: .25em
 						transition: transform 0.2s
 						transition-timing-function: cubic-bezier(0.19, 1 ,0.22, 1)
 						&.close
+							display: inline 
 							transform: rotate(45deg)
 							& > .one
-								float: none !important
+								width: 1em
 								transform: rotate(90deg) translateX(2px)
 							& > .three
-								float: none !important
+								width: 1em
 								transform: rotate(90deg) translateX(-2px)
 						&:hover
 							cursor: pointer
@@ -94,17 +114,7 @@ body
 							width: 2em
 							margin-bottom: .3em 
 							border-radius: 1.5px
-							&.one
-								width: 1em
-								float: left
-								transition: transform 0.4s
-							&.two
-								transition: width 0.3s, opacity 0.2s, transform 0.2s
-								clear: both
-							&.three
-								width: 1em
-								float: right
-								transition: transform 0.4s
+							transition: width 0.3s, transform 0.2s
 							&:last-child
 								margin-bottom: 0
 					ul.desktop
@@ -128,13 +138,23 @@ body
 			width: 70%
 			height: 100%
 			margin: 4em auto
+			font-size: 1.2em
 			.post
 				.title
 					font-size: 2em
+					font-weight: 700
+					display: block
+				.about
+					font-size: 0.8em
+					display: block
+					color: $primary-dark
 				.innhold
+					display: block
 					margin: .5em 0
 					letter-spacing: 0.025em
 					line-height: 1.25em
+					color: #444
+
 		footer
 			position: fixed
 			bottom: 0
@@ -153,19 +173,6 @@ body
 				text-decoration: none
 				&:hover
 					text-decoration: underline
-			#go-up-right
-				a
-					position: fixed
-					bottom: 0.25em
-					right: 0.5em
-					margin: auto
-					color: $white
-					font-size: 3em
-					float: right
-					transition: transform 0.3s
-					text-decoration: none
-					&:hover
-						transform: translateY(-5%)
 
 @media screen and (max-width: 1200px)
 	body
