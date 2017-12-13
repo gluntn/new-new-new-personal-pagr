@@ -23,10 +23,10 @@ body
 			top: 0
 			left: 0
 			right: 0
-			height: 4em
+			height: 3.75em
 			padding: 0.5em 2em
 			padding-bottom: 0
-			background: rgba(255, 255, 255, 0.9)
+			background: white
 			ul#mobile-menu
 				transition: width 0.2s
 				&.super-hide
@@ -89,12 +89,13 @@ body
 				#menu
 					display: inline-block
 					float: right
+					margin-top: 0.25em
 					ul#mobile
 						display: none
 						margin: .5em
-						margin-top: .25em
 						transition: transform 0.2s
 						transition-timing-function: cubic-bezier(0.19, 1 ,0.22, 1)
+						margin-top: .25em
 						&.close
 							display: inline 
 							transform: rotate(45deg)
@@ -122,6 +123,18 @@ body
 						.link
 							display: inline-block
 							vertical-align: middle
+							position: relative
+							margin-right: 0.25em
+							z-index: 100
+							.underline
+								position: absolute
+								bottom: 0
+								height: .1em
+								border-radius: 15px
+								width: 0
+								background: $primary
+								transition: width 0.2s
+								transition-timing-function: cubic-bezier(.18, .89, .32, 1.28)
 							a
 								margin: auto
 								display: block
@@ -132,8 +145,8 @@ body
 								border-bottom: 2px solid transparent
 								transition: 0.2s border-bottom, 0.2s background
 								&:hover
-									background: transparentize($primary-light, 0.9)
-									border-bottom: 2px solid $primary
+									& + .underline
+										width: 100%
 		#content
 			width: 70%
 			height: 100%
