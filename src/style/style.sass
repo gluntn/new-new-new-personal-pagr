@@ -1,10 +1,9 @@
 @import 'reset'
 
-$black:         #222222
-$white:         #f3f7f8
-$primary:       #00bf9c;
-$primary-light: lighten($primary, 1.1)
-$primary-dark:  darken( $primary, 1.1)
+$black:         #003636
+$lighter:       #c8f7c5
+$primary:       #1f996d
+$white:         #f7f8f6
 
 *
 	box-sizing: inherit
@@ -13,26 +12,31 @@ $primary-dark:  darken( $primary, 1.1)
 
 html
 	box-sizing: border-box
-	font-family: 'Rubik'
+	font-family: 'Lato'
 	color: $black
+	background: $white
+	font-size: 1.2em
+
+::selection
+	background: transparentize($primary, 0.5)
 
 body
 	#wrapper
 		nav
-			position: fixed
 			top: 0
 			left: 0
 			right: 0
 			height: 3.75em
 			padding: 0.5em 2em
 			padding-bottom: 0
-			background: white
-			ul#mobile-menu
-				transition: width 0.2s
+			background: $white
+			box-shadow: 0px 7.5px 5px 0px rgba(255,255,255,0.5)
+			#mobile-menu
+				transition: width 1s
 				&.super-hide
-					width: 0
 					display: none
 					opacity: 0
+					width: 1%
 				&.super-show
 					position: fixed
 					right: 0
@@ -41,21 +45,19 @@ body
 					width: 50%
 					opacity: 1
 					padding-top: 3em
-					background: $black
+					background: $primary
 					li
 						text-align: center
-						margin: 0.5em 0 
 						a
-							padding: 1em 0
+							padding: 1.25em 0
 							font-size: 1.5em
 							display: block
-							color: $primary
+							color: $lighter
 							background: inherit
 							text-decoration: none
-							transition: background 0.2s
-							border-radius: 3px
+							transition: background 0.4s
 							&:hover
-								background: #111111
+								background: darken($primary, 7.5)
 			#nav-overlay
 				filter: blur(5px)
 			#nav-wrapper
@@ -89,7 +91,6 @@ body
 				#menu
 					display: inline-block
 					float: right
-					margin-top: 0.25em
 					ul#mobile
 						display: none
 						margin: .5em
@@ -97,8 +98,10 @@ body
 						transition-timing-function: cubic-bezier(0.19, 1 ,0.22, 1)
 						margin-top: .25em
 						&.close
-							display: inline 
+							display: inline
 							transform: rotate(45deg)
+							& > .menu-bar
+								background: $lighter
 							& > .one
 								width: 1em
 								transform: rotate(90deg) translateX(2px)
@@ -113,9 +116,9 @@ body
 							height: 5px
 							background: $primary
 							width: 2em
-							margin-bottom: .3em 
+							margin-bottom: .3em
 							border-radius: 1.5px
-							transition: width 0.3s, transform 0.2s
+							transition: width 0.3s, transform 0.2s, color 0.2s
 							&:last-child
 								margin-bottom: 0
 					ul.desktop
@@ -126,67 +129,76 @@ body
 							position: relative
 							margin-right: 0.25em
 							z-index: 100
-							.underline
-								position: absolute
-								bottom: 0
-								height: .1em
-								border-radius: 15px
-								width: 0
-								background: $primary
-								transition: width 0.2s
-								transition-timing-function: cubic-bezier(.18, .89, .32, 1.28)
 							a
 								margin: auto
 								display: block
-								font-size: 1.5em
+								font-size: 1.25em
 								padding: .5em 1em
 								color: $primary
 								text-decoration: none
-								border-bottom: 2px solid transparent
+								border-radius: 5px
 								transition: 0.2s border-bottom, 0.2s background
+								transition-timing-function: cubic-bezier(0.42,0,0.58,1)
 								&:hover
-									& + .underline
-										width: 100%
+									background: $primary
+									color:      $lighter
 		#content
 			width: 70%
 			height: 100%
-			margin: 4em auto
+			margin: 2em auto
 			font-size: 1.2em
 			.post
 				.title
+					position: relative
 					font-size: 2em
 					font-weight: 700
 					display: block
+					text-transform: uppercase
+					&:hover
+						&::before
+							opacity: 1
+					&::before
+						content: ">"
+						position: absolute
+						left: -1em
+						opacity: 0
+						transition: 0.2s opacity
+						color: $primary
 				.about
 					font-size: 0.8em
 					display: block
-					color: $primary-dark
-					margin-top: .25em
+					color: $primary
+					margin-top: .5em
 				.innhold
 					display: block
 					margin: .5em 0
 					letter-spacing: 0.025em
-					line-height: 1.25em
+					line-height: 1.5em
 					color: #444
 
 		footer
-			position: fixed
 			bottom: 0
 			left: 0
 			right: 0
-			height: 4em
-			background: $primary
+			height: 4rem
+			background: darken($primary, 1.5)
 			padding: 0 2em
-			#feedback
-				color: white
-				display: inline-block
-				font-size: 1.3em
-				position: fixed
-				bottom: 1em
-				left:   1em
-				text-decoration: none
-				&:hover
-					text-decoration: underline
+			#fcontent
+				width: 80%
+				height: 4rem
+				margin: auto
+				position: relative
+				#social
+					height: 4rem
+					text-align: center
+					// Fix this later
+					a
+						transform: translateY(50%)
+						height: 4rem
+						margin-right: 1em
+						color: $lighter
+						&:last-child
+							margin-right: 0
 
 @media screen and (max-width: 1200px)
 	body
@@ -219,3 +231,6 @@ body
 			#content
 				width: 100%
 				padding: 0.5em
+			#footer #fcontent
+				width: 100%
+				margin: 0
