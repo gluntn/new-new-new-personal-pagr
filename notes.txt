@@ -1,1 +1,2 @@
 New color: rgb(0,191,156)
+New color: #50bb88 
