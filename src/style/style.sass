@@ -1,13 +1,10 @@
 @import 'reset'
-
-$black:         #003636
-$lighter:       #c8f7c5
-$primary:       #1f996d
-$white:         #f7f8f6
+@import 'variables'
+@import 'components'
 
 *
 	box-sizing: inherit
-	&:before, &:after
+	&::before, &::after
 		box-sizing: inherit
 
 html
@@ -17,7 +14,7 @@ html
 	background: $white
 	font-size: 1.2em
 
-::selection
+*::selection
 	background: transparentize($primary, 0.5)
 
 body
@@ -30,7 +27,6 @@ body
 			padding: 0.5em 2em
 			padding-bottom: 0
 			background: $white
-			box-shadow: 0px 7.5px 5px 0px rgba(255,255,255,0.5)
 			#mobile-menu
 				transition: width 1s
 				&.super-hide
@@ -154,6 +150,7 @@ body
 					font-weight: 700
 					display: block
 					text-transform: uppercase
+					margin: .15em
 					&:hover
 						&::before
 							opacity: 1
@@ -168,13 +165,36 @@ body
 					font-size: 0.8em
 					display: block
 					color: $primary
-					margin-top: .5em
+					margin: .5em
 				.innhold
 					display: block
-					margin: .5em 0
+					margin: .5em
 					letter-spacing: 0.025em
 					line-height: 1.5em
-					color: #444
+					text-align: justify
+					code
+						margin: 0.5em -1em
+						display: block
+						counter-reset: line-count
+						background: $black
+						padding: 0.5em
+						border-radius: 1.5px
+						font-family: 'Consolas'
+						// Set color in JS
+						.line
+							counter-increment: line-number
+							padding: 0 0.25em
+							background: inherit
+							display: block
+							color: $white
+							&:hover
+								// background: darken($black, 3)
+								& > &::before
+									color: $primary
+							&::before
+								content: counter( line-number )
+								margin-right: 0.5em
+								color: darken( $white, 1.5 )
 
 		footer
 			bottom: 0
