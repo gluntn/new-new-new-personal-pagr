@@ -13,35 +13,49 @@ html
 	color: $black
 	background: $white
 	font-size: 1.2em
+	height: 100%
 
 *::selection
 	background: transparentize($primary, 0.5)
 
 body
+	height: 100%
+	#overlay
+		position: fixed
+		height: 100%
+		width:  100%
+		background: rgba($black, 0.5)
+		opacity: 1
+		transition: opacity 0.2s
+		z-index: 100
+		display: block
+		&.hidden
+			display: none
+			opacity: 0
 	#wrapper
+		min-height: 100%
+		position: relative
 		nav
-			top: 0
-			left: 0
-			right: 0
 			height: 3.75em
 			padding: 0.5em 2em
 			padding-bottom: 0
 			background: $white
 			#mobile-menu
-				transition: width 1s
+				width: 0%
+				transition: 0.5s width
 				&.super-hide
 					display: none
 					opacity: 0
-					width: 1%
 				&.super-show
 					position: fixed
 					right: 0
 					top: 0
-					height: 100%
 					width: 50%
 					opacity: 1
 					padding-top: 3em
 					background: $primary
+					transition: 0.2s
+					z-index: 150
 					li
 						text-align: center
 						a
@@ -89,13 +103,15 @@ body
 					float: right
 					ul#mobile
 						display: none
-						margin: .5em
+						padding: .25em
 						transition: transform 0.2s
 						transition-timing-function: cubic-bezier(0.19, 1 ,0.22, 1)
-						margin-top: .25em
+						background: $white
 						&.close
+							z-index: 150
 							display: inline
 							transform: rotate(45deg)
+							background: none
 							& > .menu-bar
 								background: $lighter
 							& > .one
@@ -140,9 +156,10 @@ body
 									color:      $lighter
 		#content
 			width: 70%
-			height: 100%
+			// height: 100%
 			margin: 2em auto
 			font-size: 1.2em
+			margin-bottom: 4rem
 			.post
 				.title
 					position: relative
@@ -194,20 +211,19 @@ body
 							&::before
 								content: counter( line-number )
 								margin-right: 0.5em
-								color: darken( $white, 1.5 )
+								color: $primary
 
 		footer
-			bottom: 0
-			left: 0
-			right: 0
+			// position: absolute
+			// bottom: 0
+			width: 100%
 			height: 4rem
-			background: darken($primary, 1.5)
+			background: $primary
 			padding: 0 2em
 			#fcontent
 				width: 80%
 				height: 4rem
 				margin: auto
-				position: relative
 				#social
 					height: 4rem
 					text-align: center
@@ -228,6 +244,10 @@ body
 				#nav-wrapper
 					width: 100%
 					margin: 0
+			#content
+				.post
+					.title
+						position: static
 
 @media screen and (max-width: 890px)
 	body
