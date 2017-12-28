@@ -1,4 +1,5 @@
 html
+<<<<<<< HEAD
   head
     title William S. Østensen
     link(rel="stylesheet", href="style.css")
@@ -46,3 +47,68 @@ html
             a.icon Twitter
   script(src='main.js')
   script(src='https://use.fontawesome.com/595c58108c.js')
+=======
+	head
+		title William S. Østensen
+		link(rel="stylesheet", href="style.css")
+		link(href='https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext', rel='stylesheet')
+		meta(charset="utf-8")
+		meta(name="theme-color", content="#00cfaa")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+	body
+		#wrapper
+			#overlay.hidden
+			nav#navigation
+				ul(id="mobile-menu", class="super-hide")
+					each dest, text in {'Home': '#', 'About': '#', 'Contact': '#'}
+						li(class="link")
+							a(href=dest)=text
+				#nav-overlay
+				#nav-wrapper
+					#name 
+						| WILLIAM
+						span.s S
+						|ØSTENSEN
+					#menu
+						ul(id="mobile", class="mobile-show")
+							each val in ["one", "two", "three"]
+								li(class="menu-bar" class=val)
+						ul(class="desktop")
+							each dest, text in {'Home': '#', 'About': '#', 'Contact': '#'}
+								li(class="link")
+									a(href=dest)=text
+			#content
+				article.post
+					h1.title.upper.bold First post
+					a(href="#").about TORSDAG 11.04.2018
+					.innhold Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						|tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						|quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						|consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						|cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						|proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						code 
+							.line let a = 10;
+							.line console. log(a);
+						|Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				article.post
+					h1.title.upper.bold Second post
+					a(href="#").about TORSDAG 11.04.2018
+					.innhold Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						|tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						|quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						|consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						|cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						|proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						code 
+							.line let a = 10;
+							.line console. log(a);
+						|Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			footer#footer
+				#fcontent
+					#social
+						a.icon Github
+						a.icon Twitter
+	script(src='main.js')
+	script(src='https://use.fontawesome.com/595c58108c.js')
+>>>>>>> f9ee222fc9fd8d84ea5100838fbbc3c257dc0538

@@ -1,31 +1,33 @@
 {
-  "name": "personal-page",
-  "version": "1.0.0",
-  "description": "This is a repo for my personal webpage. Pretty barren as of now, but it's being worked on. 🌵",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wOstensen/new-new-new-personal-pagr.git"
-  },
-  "author": "William S. Østensen",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wOstensen/new-new-new-personal-pagr/issues"
-  },
-  "homepage": "https://github.com/wOstensen/new-new-new-personal-pagr#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-pug": "^3.3.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^4.3.11",
-    "pump": "^1.0.3"
-  }
+	"name": "personal-page",
+	"version": "1.0.0",
+	"description": "This is a repo for my personal webpage. Pretty barren as of now, but it's being worked on. 🌵",
+	"main": "main.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wOstensen/new-new-new-personal-pagr.git"
+	},
+	"author": "William S. Østensen",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/wOstensen/new-new-new-personal-pagr/issues"
+	},
+	"homepage": "https://github.com/wOstensen/new-new-new-personal-pagr#readme",
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"babel-preset-es2015": "^6.24.1",
+		"gulp": "^3.9.1",
+		"gulp-babel": "^7.0.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-postcss": "^7.0.0",
+		"gulp-pug": "^3.3.0",
+		"gulp-sass": "^3.1.0",
+		"gulp-uglify": "^3.0.0",
+		"gulp-watch": "^4.3.11",
+		"pump": "^1.0.3",
+		"gulp-autoprefixer": "^4.0.0"
+	}
 }

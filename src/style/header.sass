@@ -1,0 +1,11 @@
+@import 'variables'
+
+@for $n from 0 through 5
+	h#{($n + 1)}
+		font-size: (2 - ($n * 0.15))+em
+		&.bold
+			font-weight: 700
+		&.upper
+			text-transform: uppercase
+		&.primary
+			color: $primary

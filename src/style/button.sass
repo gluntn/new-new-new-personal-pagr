@@ -1,0 +1,21 @@
+@import 'variables'
+
+@mixin color($color: $black)
+	border-radius: 1.5px
+	border: 1px solid $color
+	color:  $color
+	transition: 0.2s background, 0.2s color
+	background: $white
+	cursor: pointer
+	&:hover
+		background: $color
+		color:      $white
+
+button
+	@include color
+	&.full-width
+		width: 90%
+	&.primary
+		@include color($primary)
+	&.accent
+		@include color($accent)

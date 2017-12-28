@@ -1,13 +1,10 @@
 @import 'reset'
-
-$black:         #003636
-$lighter:       #c8f7c5
-$primary:       #1f996d
-$white:         #f7f8f6
+@import 'variables'
+@import 'components'
 
 *
 	box-sizing: inherit
-	&:before, &:after
+	&::before, &::after
 		box-sizing: inherit
 
 html
@@ -15,37 +12,54 @@ html
 	font-family: 'Lato'
 	color: $black
 	background: $white
+<<<<<<< HEAD
 	font-size: 1.3em
+=======
+	font-size: 1.2em
+	height: 100%
+>>>>>>> f9ee222fc9fd8d84ea5100838fbbc3c257dc0538
 
-::selection
+*::selection
 	background: transparentize($primary, 0.5)
 
 body
+	height: 100%
+	#overlay
+		position: fixed
+		height: 100%
+		width:  100%
+		background: rgba($black, 0.5)
+		opacity: 1
+		transition: opacity 0.2s
+		z-index: 100
+		display: block
+		&.hidden
+			display: none
+			opacity: 0
 	#wrapper
+		min-height: 100%
+		position: relative
 		nav
-			top: 0
-			left: 0
-			right: 0
 			height: 3.75em
 			padding: 0.5em 2em
 			padding-bottom: 0
 			background: $white
-			box-shadow: 0px 7.5px 5px 0px rgba(255,255,255,0.5)
 			#mobile-menu
-				transition: width 1s
+				width: 0%
+				transition: 0.5s width
 				&.super-hide
 					display: none
 					opacity: 0
-					width: 1%
 				&.super-show
 					position: fixed
 					right: 0
 					top: 0
-					height: 100%
 					width: 50%
 					opacity: 1
 					padding-top: 3em
 					background: $primary
+					transition: 0.2s
+					z-index: 150
 					li
 						text-align: center
 						a
@@ -93,13 +107,15 @@ body
 					float: right
 					ul#mobile
 						display: none
-						margin: .5em
+						padding: .25em
 						transition: transform 0.2s
 						transition-timing-function: cubic-bezier(0.19, 1 ,0.22, 1)
-						margin-top: .25em
+						background: $white
 						&.close
+							z-index: 150
 							display: inline
 							transform: rotate(45deg)
+							background: none
 							& > .menu-bar
 								background: $lighter
 							& > .one
@@ -144,16 +160,15 @@ body
 									color:      $lighter
 		#content
 			width: 70%
-			height: 100%
+			// height: 100%
 			margin: 2em auto
 			font-size: 1.2em
+			margin-bottom: 4rem
 			.post
 				.title
 					position: relative
-					font-size: 2em
-					font-weight: 700
 					display: block
-					text-transform: uppercase
+					margin: .15em
 					&:hover
 						&::before
 							opacity: 1
@@ -168,26 +183,48 @@ body
 					font-size: 0.8em
 					display: block
 					color: $primary
-					margin-top: .5em
+					margin: .5em
 				.innhold
 					display: block
-					margin: .5em 0
+					margin: .5em
 					letter-spacing: 0.025em
 					line-height: 1.5em
-					color: #444
+					text-align: justify
+					code
+						margin: 0.5em -1em
+						display: block
+						counter-reset: line-count
+						background: $black
+						padding: 0.5em
+						border-radius: 1.5px
+						font-family: 'Monaco','Courier New','Courier','monospace'
+						// Set color in JS
+						.line
+							counter-increment: line-number
+							padding: 0 0.25em
+							background: inherit
+							display: block
+							color: $white
+							&:hover
+								// background: darken($black, 3)
+								& > &::before
+									color: $primary
+							&::before
+								content: counter( line-number )
+								margin-right: 0.5em
+								color: $primary
 
 		footer
-			bottom: 0
-			left: 0
-			right: 0
+			// position: absolute
+			// bottom: 0
+			width: 100%
 			height: 4rem
-			background: darken($primary, 1.5)
+			background: $primary
 			padding: 0 2em
 			#fcontent
 				width: 80%
 				height: 4rem
 				margin: auto
-				position: relative
 				#social
 					height: 4rem
 					text-align: center
@@ -201,13 +238,19 @@ body
 							margin-right: 0
 
 @media screen and (max-width: 1200px)
-	body
-		#wrapper
-			nav
-				padding: 0.5em
-				#nav-wrapper
-					width: 100%
-					margin: 0
+	html
+		font-size: 1.1em
+		body
+			#wrapper
+				nav
+					padding: 0.5em
+					#nav-wrapper
+						width: 100%
+						margin: 0
+				#content
+					.post
+						.title
+							position: static
 
 @media screen and (max-width: 890px)
 	body
