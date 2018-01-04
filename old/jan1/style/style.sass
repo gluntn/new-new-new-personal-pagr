@@ -12,12 +12,8 @@ html
 	font-family: 'Lato'
 	color: $black
 	background: $white
-<<<<<<< HEAD
-	font-size: 1.3em
-=======
 	font-size: 1.2em
 	height: 100%
->>>>>>> f9ee222fc9fd8d84ea5100838fbbc3c257dc0538
 
 *::selection
 	background: transparentize($primary, 0.5)
@@ -41,7 +37,7 @@ body
 		position: relative
 		nav
 			height: 3.75em
-			padding: 0.5em 2em
+			padding: 0.5em 0
 			padding-bottom: 0
 			background: $white
 			#mobile-menu
@@ -75,7 +71,7 @@ body
 			#nav-overlay
 				filter: blur(5px)
 			#nav-wrapper
-				width: 80%
+				width: $element-width
 				margin: 0 auto
 				#name
 					display: inline-block
@@ -159,7 +155,7 @@ body
 									background: $primary
 									color:      $lighter
 		#content
-			width: 70%
+			width: $element-width
 			// height: 100%
 			margin: 2em auto
 			font-size: 1.2em
@@ -222,7 +218,7 @@ body
 			background: $primary
 			padding: 0 2em
 			#fcontent
-				width: 80%
+				width: $element-width
 				height: 4rem
 				margin: auto
 				#social

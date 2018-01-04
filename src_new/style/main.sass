@@ -1,0 +1,188 @@
+@import "reset"
+@import "etc"
+@import "variables"
+
+.wrapper
+  font-family: 'Lato'
+  margin: 1rem auto
+  background: $white
+  width: 80%
+  font-size: 1.2em
+  .left
+    position: fixed
+    height: 80%
+    // width: 35%
+    padding-right: 1rem
+    .top-menu
+      display: none
+      background: rgba(255, 255, 255, 0.5)
+      box-shadow: $shadow
+      a
+        display: block
+        width: 100%
+        text-align: center
+        padding: 1em 0
+        text-decoration: none
+        color: $primary
+        font-weight: 700
+        span
+          margin-right: 0.5rem
+          color: $primary
+    #navigation
+      font-size: 1.5rem
+      background: white
+      padding: 1rem
+      border-radius: 5px
+      box-shadow: $shadow
+      .nav-list
+        text-align: right
+        .link
+          .search-container
+            position: relative
+            input
+              display: block
+              margin: auto
+              margin-right: 0
+              padding: 1em
+            .inside-text
+              position: absolute
+              top: 1em
+              left: 100%
+          img
+            display: block
+            margin: auto
+            margin-right: 0
+            max-width: 100%
+            max-height: 100%
+            margin-bottom: 1rem
+            border-top-right-radius: 5px
+            border-top-left-radius:  5px
+          a
+            display: block
+            background: white
+            padding: 1rem
+            color: $primary
+            text-decoration: none
+            transition: 0.2s background, 0.2s color, 0.3s padding
+            font-weight: 200
+            &:hover
+              background: $primary
+              color:      $white
+              padding-right: 2rem
+    .search-bar
+      position: relative
+      margin-top: 1rem
+      input
+        width: 100%
+        border: 1px solid $primary
+        transition: 0.3s background
+        padding: 0.5rem
+        font-family: 'Lato'
+        font-size: 1.2rem
+        border-bottom-left-radius:  5px
+        border-bottom-right-radius: 5px
+        &:focus
+          background: $primary
+          color: white
+        &::selection
+        	background: $white
+          color:      $primary
+        &::placeholder
+          font-family: 'Lato'
+          color: $primary
+          opacity: 0.75
+      button
+        position: absolute
+        right: 0
+        top: 0
+        bottom: 0
+        width: 15%
+        border: none
+        color: $white
+        background: $primary
+        border-bottom-right-radius: 5px
+
+  .right
+    width: $right-width + %
+    background: $white
+    height: 100%
+    float: right
+    .header
+      // Add this later
+      display: none
+    .content
+      .article
+        background: white
+        text-align: justify
+        padding: 2rem
+        border-radius: 5px
+        box-shadow: $shadow
+        .date
+          margin: 0.5rem 0
+          font-size: 0.9rem
+          color: $primary
+          font-weight: 300
+        .content
+          line-height: 1.5
+          letter-spacing: 0.0125em
+          code
+            display: block
+            margin: .5em 0
+            padding: 1em
+            background: $black
+            font-family: 'Monaco','Courier New','Courier','monospace'
+            overflow-x: auto
+            .line
+              white-space: nowrap
+              background: $black
+              color: $white
+        .footer
+          margin-top: 1.5rem
+          .tags
+            display: block
+            & .tag + .tag
+              margin: 0
+            .tag
+              display: inline-block
+              margin: 0
+              margin-right: 0.25rem
+              a
+                text-decoration: none
+                background: $primary
+                color: $white
+                padding: 0.25rem
+                border-radius: 5px
+                font-weight: 300
+                &:hover
+                  text-decoration: underline
+
+@media screen and (max-width: 890px)
+  .wrapper
+    width: 95%
+    margin: 0.5rem auto
+    .left
+      position: fixed
+      top: 0
+      height: auto
+      width: 95%
+      padding: 0
+      .top-menu
+        display: block
+      #navigation
+        display: none
+        opacity: 0
+        height: 0
+        transition: 0.3s all
+        &.show
+          display: block
+          opacity: 1
+          height: auto
+        .nav-list
+          text-align: center
+          .link
+            img
+              margin-right: auto
+    .right
+      margin-top: 5rem
+      width: 100%
+      float: none

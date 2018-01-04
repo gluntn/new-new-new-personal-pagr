@@ -11,9 +11,9 @@ const prefix  = require('autoprefixer')
 
 const dest  = './docs';
 const where = {
-	pug:  './src/*.pug',
-	sass: './src/style/*.sass',
-	js:   './src/js/*.js'
+	pug:  './src_new/*.pug',
+	sass: './src_new/style/*.sass',
+	js:   './src_new/js/*.js'
 }
 
 gulp.task('pug', (cb) => {

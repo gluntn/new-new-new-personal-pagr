@@ -1,0 +1,59 @@
+mixin li-link(text="", dest="#", fa="")
+  li.link
+    a(href=dest)=text
+    if fa != ""
+      i(class=`fa #{fa}`)
+
+mixin search-bar()
+  .search-bar
+    input(name="search" placeholder="Søk...")
+    button
+      i.fa.fa-search
+
+mixin tag-link(text="")
+  li.tag
+    a(href="#")=text
+
+html
+  head
+    title William S. Østensen
+    // Meta properties
+    meta(name='theme-color', content='#00ffee')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(charset='UTF-8')
+    // Links for fonts and stylesheets
+    link(rel='stylesheet', type='text/css', href='style.css')
+    link(href='https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext', rel='stylesheet')
+    
+  body
+    div.wrapper
+      div.left
+        div.top-menu
+          a(href="#")#open-menu
+            span Meny
+            i.fa.fa-bars
+        section#navigation
+          ul.nav-list
+            li.link: img(src="https://picsum.photos/g/250/250")
+            +li-link("Home")
+            +li-link("About")
+            +li-link("Contact")
+          +search-bar
+      div.right
+        section.header
+          | Ingenting her nå. 
+        section.content
+          article.article
+            h1.bold.primary.upper.title First Post
+            div.date 05.01.2018
+            div.content Lorem ipsum dølor sit æmet, est causæe feugait åd, pri iriure deterruisset eu. Dico ornætus sea eå. Hås ei eirmod nonumes vituperåtoribus, erat detracto at vim, facer legimus ne usu. Nåm ut quøt causåe åtomorum, ad quo aliquid insolens ullamcørper, te nec hinc ignøta. Ridens similique vim at, virtute dissentias usu et. Sed id assum æliquid, åt aperiam pønderum pro. Seæ vero velit førensibus eå, quød sumø pro no.
+              code
+                .line const a = document.getElementById('a');
+                .line a.addEventListener(() => alert('hello'));
+            div.footer
+              ul.tags
+                +tag-link("js")
+                +tag-link("python")
+        section.footer
+  script(src="https://use.fontawesome.com/595c58108c.js")
+  script(src="main.js")

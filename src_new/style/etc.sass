@@ -1,0 +1,17 @@
+@import "variables"
+
+*
+	box-sizing: inherit
+	&::before, &::after
+		box-sizing: inherit
+
+html
+	box-sizing: border-box
+	font-family: 'Lato'
+	color: $black
+	background: $white
+	font-size: 1.2em
+	height: 100%
+
+*::selection
+	background: transparentize($primary, 0.5)
