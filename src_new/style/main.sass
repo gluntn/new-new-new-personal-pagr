@@ -2,6 +2,18 @@
 @import "etc"
 @import "variables"
 
+#overlay
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  opacity: 1
+  background: rgba($black, 0.5)
+  transition: opacity 0.3s
+  &.hidden
+    visibility: hidden
+    opacity: 0
 .wrapper
   font-family: 'Lato'
   margin: 1rem auto
@@ -11,11 +23,10 @@
   .left
     position: fixed
     height: 80%
-    // width: 35%
-    padding-right: 1rem
+    width: 25%
     .top-menu
       display: none
-      background: rgba(255, 255, 255, 0.5)
+      background: white
       box-shadow: $shadow
       a
         display: block
@@ -34,6 +45,7 @@
       padding: 1rem
       border-radius: 5px
       box-shadow: $shadow
+      transition: 0.3s all
       .nav-list
         text-align: right
         .link
@@ -71,7 +83,7 @@
               padding-right: 2rem
     .search-bar
       position: relative
-      margin-top: 1rem
+      margin: 1rem 0
       input
         width: 100%
         border: 1px solid $primary
@@ -79,8 +91,8 @@
         padding: 0.5rem
         font-family: 'Lato'
         font-size: 1.2rem
-        border-bottom-left-radius:  5px
-        border-bottom-right-radius: 5px
+        // border-bottom-left-radius:  5px
+        // border-bottom-right-radius: 5px
         &:focus
           background: $primary
           color: white
@@ -100,13 +112,13 @@
         border: none
         color: $white
         background: $primary
-        border-bottom-right-radius: 5px
 
   .right
-    width: $right-width + %
+    display: block
     background: $white
     height: 100%
-    float: right
+    margin-left: 32.5%
+    max-width: 66.5%
     .header
       // Add this later
       display: none
@@ -122,6 +134,7 @@
           font-size: 0.9rem
           color: $primary
           font-weight: 300
+          letter-spacing: 0.1em
         .content
           line-height: 1.5
           letter-spacing: 0.0125em
@@ -162,17 +175,25 @@
     margin: 0.5rem auto
     .left
       position: fixed
-      top: 0
+      top: 1rem
       height: auto
       width: 95%
       padding: 0
+      border-radius: 5px
+      z-index: 10
       .top-menu
         display: block
+        border-radius: 5px
       #navigation
         display: none
         opacity: 0
         height: 0
         transition: 0.3s all
+        border-radius: 5px
+        margin-top: .5rem
+        .search-bar
+          input
+            padding: 1rem
         &.show
           display: block
           opacity: 1
@@ -183,6 +204,19 @@
             img
               margin-right: auto
     .right
-      margin-top: 5rem
+      margin: 0 auto
+      margin-top: 5.5rem
       width: 100%
+      max-width: 100%
       float: none
+
+@media screen and (min-width: 1500px)
+  .wrapper
+    width: 70%
+    margin: 0.5rem auto
+    .left
+      height: 80%
+      width: 15%
+    .right
+      margin-left: 22.5%
+      max-width: 66.5%

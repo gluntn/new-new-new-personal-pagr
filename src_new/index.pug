@@ -23,9 +23,10 @@ html
     meta(charset='UTF-8')
     // Links for fonts and stylesheets
     link(rel='stylesheet', type='text/css', href='style.css')
-    link(href='https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,400i,700&amp;subset=latin-ext', rel='stylesheet')
     
   body
+    div#overlay.hidden
     div.wrapper
       div.left
         div.top-menu
@@ -35,10 +36,10 @@ html
         section#navigation
           ul.nav-list
             li.link: img(src="https://picsum.photos/g/250/250")
+            +search-bar
             +li-link("Home")
             +li-link("About")
             +li-link("Contact")
-          +search-bar
       div.right
         section.header
           | Ingenting her nå. 
